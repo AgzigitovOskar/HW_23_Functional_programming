@@ -13,7 +13,7 @@ def map_query(param: str, data: list[str]) -> list[str]:
 
 def unique_query(data: list[str], *args, **kwargs) -> list[str]:
     result = []
-    seen = {}
+    seen = set()
     for row in data:
         if row in seen:
             continue
@@ -40,8 +40,6 @@ CMD_TO_FUNCTION = {
     'sort': sort_query,
     'limit': limit_query,
 }
-
-# FILE_NAME = 'data/apache_logs.txt'
 
 
 def build_query(cmd, param, filename, data=None):
